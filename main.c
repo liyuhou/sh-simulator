@@ -35,7 +35,16 @@ int main(char argc,char** argv,char** envp){
             exit(0);
         }
         else if(strcmp(s,"cd")==0){
-            printf("cd command is not supported yet\nPlease insert another cmd\n");
+            s=strtok(NULL," ");
+            if(s){
+                chdir(s);
+            }
+            else{
+                chdir("/home/liyu");
+            }
+            char cwd[60];
+            getcwd(cwd,60);
+            printf("current path is :%s\n",cwd);
         }
         else{
             int i=0;//number of arg - 1
